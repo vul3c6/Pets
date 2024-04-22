@@ -16,6 +16,7 @@ builder.Services.AddSingleton<DbContext>();
 
 builder.Services.AddScoped<ILost, LostRepository>();
 builder.Services.AddScoped<IReceive, ReceiveRepository>();
+builder.Services.AddScoped<IVaccine, VaccineRepository>();
 
 var app = builder.Build();
 
