@@ -7,17 +7,17 @@ using System.Data;
 
 namespace Pets.Repositories
 {
-    public class lostRepository : Ilost
+    public class LostRepository : Ilost
     {
         private readonly DbContext _dbContext;
         // 在建構子中初始化DbContext 服務
-        public lostRepository(DbContext dbContext)
+        public LostRepository(DbContext dbContext)
         {
             // 注入DbContext 服務
             _dbContext = dbContext;
         }
         // 查詢所有走失寵物資料的實作
-        public async Task<IEnumerable<lost>> GetAllLostPets()
+        public async Task<IEnumerable<Lost>> GetAllLostPets()
         {
             // 設定查詢用的SQL 語法
             string sqlQuery = "SELECT * FROM lost";
@@ -25,13 +25,13 @@ namespace Pets.Repositories
             using (var connection = _dbContext.CreateConnection())
             {
                 // 執行查詢
-                var losts = await connection.QueryAsync<lost>(sqlQuery);
+                var losts = await connection.QueryAsync<Lost>(sqlQuery);
 
                 return losts.ToList();
             }
         }
         // 查詢指定id 的走失寵物資料
-        public async Task<lost> GetLostById(Guid id)
+        public async Task<Lost> GetLostById(Guid id)
         // 新增走失寵物資料
         {
             string sqlQuery = "SELECT * FROM lost WHERE Lid = @Id";
@@ -39,11 +39,11 @@ namespace Pets.Repositories
             using (var connection = _dbContext.CreateConnection())
             {
                 // 執行查詢
-                var lost = await connection.QueryFirstOrDefaultAsync<lost>(sqlQuery, new { Id = id });
+                var lost = await connection.QueryFirstOrDefaultAsync<Lost>(sqlQuery, new { Id = id });
                 return lost;
             }
         }
-        public async Task<lostForCreationDto> CreateLost(lostForCreationDto lost)
+        public async Task<LostForCreationDto> CreateLost(LostForCreationDto lost)
         {
             string sqlQuery = "INSERT INTO lost (LBreed, LTime,LPlace,LFeature,LContactlnformation) VALUES (@LBreed, @LTime,@LPlace,@LFeature,@LContactlnformation)";
             // 建立資料庫連線
@@ -54,7 +54,7 @@ namespace Pets.Repositories
                 return lost;
             }
         }
-        public async Task UpdateLost(Guid id, lostForUpdateDto lost)
+        public async Task UpdateLost(Guid id, LostForUpdateDto lost)
         {
             string sqlQuery = "UPDATE lost SET LBreed = @LBreed, LTime = @LTime, LPlace = @LPlace, LFeature = @LFeature,LContactlnformation=@LContactlnformation WHERE Lid = @Id";
             // 建立參數物件

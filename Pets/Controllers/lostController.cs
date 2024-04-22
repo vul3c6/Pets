@@ -7,12 +7,12 @@ namespace Pets.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class lostController : ControllerBase
+    public class LostController : ControllerBase
     {
-        private readonly ILogger<lostController> _logger; 
+        private readonly ILogger<LostController> _logger; 
         private readonly Ilost _lost;
             
-        public lostController(ILogger<lostController> logger, Ilost lost) 
+        public LostController(ILogger<LostController> logger, Ilost lost) 
         { 
             _logger = logger;
             _lost = lost; 
@@ -50,7 +50,7 @@ namespace Pets.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> CreateLost(lostForCreationDto lost)
+        public async Task<IActionResult> CreateLost(LostForCreationDto lost)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace Pets.Controllers
         }
         [HttpPut]
         [Route("{id}")]
-        public async Task<IActionResult> UpdateLost(Guid id, lostForUpdateDto lost)
+        public async Task<IActionResult> UpdateLost(Guid id, LostForUpdateDto lost)
         {
             try
             {

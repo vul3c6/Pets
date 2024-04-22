@@ -1,7 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-namespace Pets.Models
+﻿namespace Pets.Models
 {
-    public class lost
+    public class Lost
     {
         public Guid Lid { get; set; }
         public String LBreed { get; set; }

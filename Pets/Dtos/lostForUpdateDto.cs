@@ -2,7 +2,7 @@
 
 namespace Pets.Dtos
 {
-    public class lostForUpdateDto
+    public class LostForUpdateDto
     {
         [Required]
         [StringLength(10, ErrorMessage = "Maximum 10 characters")]
