@@ -3,7 +3,7 @@ using Pets.Dtos;
 
 namespace Pets.Interfaces
 {
-    public interface Ilost
+    public interface ILost
     {
         // 走失寵物資料的介面
         public Task<IEnumerable<Lost>> GetAllLostPets();

@@ -10,9 +10,9 @@ namespace Pets.Controllers
     public class LostController : ControllerBase
     {
         private readonly ILogger<LostController> _logger; 
-        private readonly Ilost _lost;
+        private readonly ILost _lost;
             
-        public LostController(ILogger<LostController> logger, Ilost lost) 
+        public LostController(ILogger<LostController> logger, ILost lost) 
         { 
             _logger = logger;
             _lost = lost; 

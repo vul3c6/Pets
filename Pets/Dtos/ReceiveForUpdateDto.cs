@@ -2,7 +2,7 @@
 
 namespace Pets.Dtos
 {
-    public class ReceiveForCreationDto
+    public class ReceiveForUpdateDto
     {
         [Required]
         [StringLength(10, ErrorMessage = "Maximum 10 characters")]
@@ -24,4 +24,4 @@ namespace Pets.Dtos
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
         public String RContactlnformation { get; set; }
     }
-    }
+}

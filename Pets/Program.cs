@@ -1,6 +1,7 @@
 using Pets.Interfaces;
 using Pets.Repositories;
 using Pets.Utilities;
+using System.Numerics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<DbContext>();
 
-builder.Services.AddScoped<Ilost, LostRepository>();
+builder.Services.AddScoped<ILost, LostRepository>();
+builder.Services.AddScoped<IReceive, ReceiveRepository>();
 
 var app = builder.Build();
 
