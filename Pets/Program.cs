@@ -1,5 +1,6 @@
-using Pets.Interfaces;
 using Pets.Repositories;
+using Pets.Contracts;
+using Pets.Interfaces;
 using Pets.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,8 @@ builder.Services.AddScoped<ImyPet, myPetRepository>();
 builder.Services.AddScoped<ILost, LostRepository>();
 builder.Services.AddScoped<IReceive, ReceiveRepository>();
 builder.Services.AddScoped<IVaccine, VaccineRepository>();
+// 將CrossRepository 類型的實例注入到ICross 容器中
+builder.Services.AddScoped<ICross1, Cross1Repositories>();
 
 var app = builder.Build();
 

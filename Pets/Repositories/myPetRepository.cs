@@ -65,7 +65,7 @@ namespace Pets.Repositories
             parameters.Add("Id", id, DbType.Guid);
             parameters.Add("PName", myPet.PName, DbType.String);
             parameters.Add("PBreed", myPet.PBreed, DbType.String);
-            parameters.Add("PWeight", myPet.PWeight, DbType.Int32);
+            parameters.Add("PWeight", myPet.PWeight, DbType.String);
             parameters.Add("PBorn", myPet.PBorn, DbType.String);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
