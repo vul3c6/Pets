@@ -4,7 +4,6 @@
     {
         public Guid Vid { get; set; }
         public String VName { get; set; }
-        public String VDate { get; set; }
         public String VRemark { get; set; }
     }
 }

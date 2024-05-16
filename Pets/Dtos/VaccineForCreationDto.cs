@@ -7,9 +7,5 @@ namespace Pets.Dtos
         [Required]
         [StringLength(20, ErrorMessage = "Maximum 20 characters")]
         public string VName { get; set; }
-
-        [Required]
-        [StringLength(20, ErrorMessage = "Maximum 20 characters")]
-        public String VDate { get; set; }
     }
 }
