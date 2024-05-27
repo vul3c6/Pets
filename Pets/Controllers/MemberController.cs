@@ -72,7 +72,7 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
+        
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> UpdateMember(Guid id, MemberForUpdateDto member)

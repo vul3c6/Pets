@@ -54,7 +54,6 @@ namespace Pets.Repositories
                 return member;
             }
         }
-
         // 更新 Member 資料（依指定 id）
         public async Task UpdateMember(Guid id, MemberForUpdateDto member)
         {
