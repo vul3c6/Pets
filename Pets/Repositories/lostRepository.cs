@@ -30,19 +30,19 @@ namespace Pets.Repositories
                 return losts.ToList();
             }
         }
-        // 查詢指定id 的走失寵物資料
-        public async Task<Lost> GetLostById(Guid id)
-        // 新增走失寵物資料
-        {
-            string sqlQuery = "SELECT * FROM lost WHERE Lid = @Id";
-            // 建立資料庫連線
-            using (var connection = _dbContext.CreateConnection())
-            {
-                // 執行查詢
-                var lost = await connection.QueryFirstOrDefaultAsync<Lost>(sqlQuery, new { Id = id });
-                return lost;
-            }
-        }
+        //// 查詢指定id 的走失寵物資料
+        //public async Task<Lost> GetLostById(Guid id)
+        //// 新增走失寵物資料
+        //{
+        //    string sqlQuery = "SELECT * FROM lost WHERE Lid = @Id";
+        //    // 建立資料庫連線
+        //    using (var connection = _dbContext.CreateConnection())
+        //    {
+        //        // 執行查詢
+        //        var lost = await connection.QueryFirstOrDefaultAsync<Lost>(sqlQuery, new { Id = id });
+        //        return lost;
+        //    }
+        //}
         public async Task<LostForCreationDto> CreateLost(LostForCreationDto lost)
         {
             string sqlQuery = "INSERT INTO lost (LBreed, LTime,LPlace,LFeature,LContactlnformation) VALUES (@LBreed, @LTime,@LPlace,@LFeature,@LContactlnformation)";

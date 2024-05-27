@@ -15,32 +15,32 @@ namespace Pets.Repositories
             // 注入 DbContext 服務
             _dbContext = dbContext;
         }
-        // 查詢所有 myPet 資料的實作
-        public async Task<IEnumerable<myPet>> GetAllmyPets()
-        {
-            string sqlQuery = "SELECT * FROM myPet";
-            // 建立資料庫連線
-            using (var connection = _dbContext.CreateConnection())
-            {
-                // 執行查詢
-                var myPets = await connection.QueryAsync<myPet>(sqlQuery);
-                return myPets.ToList();
-            }
-        }
+        //// 查詢所有 myPet 資料的實作
+        //public async Task<IEnumerable<myPet>> GetAllmyPets()
+        //{
+        //    string sqlQuery = "SELECT * FROM myPet";
+        //    // 建立資料庫連線
+        //    using (var connection = _dbContext.CreateConnection())
+        //    {
+        //        // 執行查詢
+        //        var myPets = await connection.QueryAsync<myPet>(sqlQuery);
+        //        return myPets.ToList();
+        //    }
+        //}
 
-        // 查詢單一 myPets 資料（依指定 Id）
-        public async Task<myPet> GetmyPetById(Guid id)
-        {
-            string sqlQuery = "SELECT * FROM myPet WHERE Pid = @Id";
-            // 建立資料庫連線
-            using (var connection = _dbContext.CreateConnection())
-            {
-                // 執行查詢
-                var myPet = await
-                connection.QueryFirstOrDefaultAsync<myPet>(sqlQuery, new { Id = id });
-                return myPet;
-            }
-        }
+        //// 查詢單一 myPets 資料（依指定 Id）
+        //public async Task<myPet> GetmyPetById(Guid id)
+        //{
+        //    string sqlQuery = "SELECT * FROM myPet WHERE Pid = @Id";
+        //    // 建立資料庫連線
+        //    using (var connection = _dbContext.CreateConnection())
+        //    {
+        //        // 執行查詢
+        //        var myPet = await
+        //        connection.QueryFirstOrDefaultAsync<myPet>(sqlQuery, new { Id = id });
+        //        return myPet;
+        //    }
+        //}
 
         // 新增 myPets 資料
         public async Task<myPetForCreationDto> CreateMyPet(myPetForCreationDto myPet)

@@ -36,19 +36,19 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message); 
             } 
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetLostById(Guid id)
-        {
-            try
-            {
-                var lost = await _lost.GetLostById(id);
-                return Ok(new { Success = true, Message = "Lost Returned.", lost });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> GetLostById(Guid id)
+        //{
+        //    try
+        //    {
+        //        var lost = await _lost.GetLostById(id);
+        //        return Ok(new { Success = true, Message = "Lost Returned.", lost });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, ex.Message);
+        //    }
+        //}
         [HttpPost]
         public async Task<IActionResult> CreateLost(LostForCreationDto lost)
         {

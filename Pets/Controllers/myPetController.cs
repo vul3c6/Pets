@@ -17,44 +17,44 @@ namespace Pets.Controllers
             _logger = logger;
             _myPet = myPet;
         }
-        [HttpGet]
-        public async Task<IActionResult> GetAllmyPets()
-        {
-            try
-            {
-                var myPets = await _myPet.GetAllmyPets();
-                return Ok(new
-                {
-                    Success = true,
-                    Message = "All myPets Returned.",
-                    myPets
-                });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllmyPets()
+        //{
+        //    try
+        //    {
+        //        var myPets = await _myPet.GetAllmyPets();
+        //        return Ok(new
+        //        {
+        //            Success = true,
+        //            Message = "All myPets Returned.",
+        //            myPets
+        //        });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, ex.Message);
+        //    }
+        //}
 
-        [HttpGet]
-        [Route("{id}")]
-        public async Task<IActionResult> GetmyPetById(Guid id)
-        {
-            try
-            {
-                var myPet = await _myPet.GetmyPetById(id);
-                return Ok(new
-                {
-                    Success = true,
-                    Message = "myPet Returned.",
-                    myPet
-                });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
+        //[HttpGet]
+        //[Route("{id}")]
+        //public async Task<IActionResult> GetmyPetById(Guid id)
+        //{
+        //    try
+        //    {
+        //        var myPet = await _myPet.GetmyPetById(id);
+        //        return Ok(new
+        //        {
+        //            Success = true,
+        //            Message = "myPet Returned.",
+        //            myPet
+        //        });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, ex.Message);
+        //    }
+        //}
 
         [HttpPost]
         public async Task<IActionResult> CreateMyPet(myPetForCreationDto myPet)

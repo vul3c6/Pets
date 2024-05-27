@@ -16,33 +16,33 @@ namespace Pets.Repositories
             // 注入DbContext 服務
             _dbContext = dbContext;
         }
-        // 查詢所有疫苗資料的實作
-        public async Task<IEnumerable<Vaccine>> GetAllVaccinePets()
-        {
-            // 設定查詢用的SQL 語法
-            string sqlQuery = "SELECT * FROM vaccine";
-            // 建立資料庫連線
-            using (var connection = _dbContext.CreateConnection())
-            {
-                // 執行查詢
-                var vaccine = await connection.QueryAsync<Vaccine>(sqlQuery);
+        //// 查詢所有疫苗資料的實作
+        //public async Task<IEnumerable<Vaccine>> GetAllVaccinePets()
+        //{
+        //    // 設定查詢用的SQL 語法
+        //    string sqlQuery = "SELECT * FROM vaccine";
+        //    // 建立資料庫連線
+        //    using (var connection = _dbContext.CreateConnection())
+        //    {
+        //        // 執行查詢
+        //        var vaccine = await connection.QueryAsync<Vaccine>(sqlQuery);
 
-                return vaccine.ToList();
-            }
-        }
-        // 查詢指定id 的疫苗資料
-        public async Task<Vaccine> GetVaccineById(Guid id)
-        // 新增走失寵物資料
-        {
-            string sqlQuery = "SELECT * FROM vaccine WHERE Vid = @Id";
-            // 建立資料庫連線
-            using (var connection = _dbContext.CreateConnection())
-            {
-                // 執行查詢
-                var vaccine = await connection.QueryFirstOrDefaultAsync<Vaccine>(sqlQuery, new { Id = id });
-                return vaccine;
-            }
-        }
+        //        return vaccine.ToList();
+        //    }
+        //}
+        //// 查詢指定id 的疫苗資料
+        //public async Task<Vaccine> GetVaccineById(Guid id)
+        //// 新增走失寵物資料
+        //{
+        //    string sqlQuery = "SELECT * FROM vaccine WHERE Vid = @Id";
+        //    // 建立資料庫連線
+        //    using (var connection = _dbContext.CreateConnection())
+        //    {
+        //        // 執行查詢
+        //        var vaccine = await connection.QueryFirstOrDefaultAsync<Vaccine>(sqlQuery, new { Id = id });
+        //        return vaccine;
+        //    }
+        //}
         public async Task<VaccineForCreationDto> CreateVaccine(VaccineForCreationDto vaccine)
         {
             string sqlQuery = "INSERT INTO vaccine (VName) VALUES (@VName)";
