@@ -27,12 +27,10 @@ builder.Services.AddCors(options =>
 builder.Services.AddSingleton<DbContext>();
 
 builder.Services.AddScoped<IMember, MemberRepository>();
-builder.Services.AddScoped<ImyPet, myPetRepository>();
-builder.Services.AddScoped<ILost, LostRepository>();
-builder.Services.AddScoped<IReceive, ReceiveRepository>();
-builder.Services.AddScoped<IVaccine, VaccineRepository>();
-// 將CrossRepository 類型的實例注入到ICross 容器中
-builder.Services.AddScoped<ICross, CrossRepositories>();
+//builder.Services.AddScoped<ImyPet, myPetRepository>();
+//builder.Services.AddScoped<ILost, LostRepository>();
+//builder.Services.AddScoped<IReceive, ReceiveRepository>();
+//builder.Services.AddScoped<IVaccine, VaccineRepository>();
 
 var app = builder.Build();
 

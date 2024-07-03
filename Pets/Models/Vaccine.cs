@@ -3,7 +3,9 @@
     public class Vaccine
     {
         public Guid Vid { get; set; }
-        public String VName { get; set; }
-        public String VRemark { get; set; }
+        public Guid Pid { get; set; }
+        public string VName { get; set; }
+        public DateOnly Vdate { get; set; }
+        public string Vremarks { get; set; }
     }
 }

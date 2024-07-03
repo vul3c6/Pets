@@ -3,10 +3,10 @@
     public class Lost
     {
         public Guid Lid { get; set; }
-        public String LBreed { get; set; }
-        public System.DateTime LTime { get; set; }
-        public String LPlace { get; set; }
-        public String LFeature { get; set; }
-        public String LContactlnformation { get; set; }
+        public string LBreed { get; set; }
+        public DateOnly LTime { get; set; }
+        public string LPlace { get; set; }
+        public string LFeature { get; set; }
+        public string LContactlnformation { get; set; }
     }
 }

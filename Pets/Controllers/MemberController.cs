@@ -35,12 +35,12 @@ namespace Pets.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
-        public async Task<IActionResult> GetMemberById(Guid id)
+        [Route("{Maccount}")]
+        public async Task<IActionResult> GetMemberById(string Maccount)
         {
             try
             {
-                var member = await _member.GetMemberById(id);
+                var member = await _member.GetMemberById(Maccount);
                 return Ok(new
                 {
                     Success = true,
@@ -73,28 +73,28 @@ namespace Pets.Controllers
             }
         }
         
-        [HttpPut]
-        [Route("{id}")]
-        public async Task<IActionResult> UpdateMember(Guid id, MemberForUpdateDto member)
-        {
-            try
-            {
-                await _member.UpdateMember(id, member);
-                return Ok(new { Success = true, Message = "Member Updated." });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
+        //[HttpPut]
+        //[Route("{id}")]
+        //public async Task<IActionResult> UpdateMember(string Maccount, MemberForUpdateDto member)
+        //{
+        //    try
+        //    {
+        //        await _member.UpdateMember(Maccount, member);
+        //        return Ok(new { Success = true, Message = "Member Updated." });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, ex.Message);
+        //    }
+        //}
 
         [HttpDelete]
-        [Route("{id}")]
-        public async Task<IActionResult> DeleteMember(Guid id)
+        [Route("{Maccount}")]
+        public async Task<IActionResult> DeleteMember(string Maccount)
         {
             try
             {
-                await _member.DeleteMember(id);
+                await _member.DeleteMember(Maccount);
                 return Ok(new
                 {
                     Success = true,

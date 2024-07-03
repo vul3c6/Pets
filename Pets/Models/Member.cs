@@ -2,9 +2,11 @@
 {
     public class Member
     {
-        public Guid Mid { get; set; }
-        public String MAccount { get; set; }
-        public String MPassword { get; set; }
-        public String MName { get; set; }
+        public string Maccount { get; set; }
+        public string Mpassword { get; set; }
+        public string Mname { get; set; }
+        public string Memail { get; set; }
+        //public DateOnly Mborn { get; set; }
+        public char Msex { get; set; }
     }
 }

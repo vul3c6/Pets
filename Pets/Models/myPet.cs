@@ -1,11 +1,13 @@
 ﻿namespace Pets.Models
 {
-    public class myPet
+    public class MyPet
     {
         public Guid Pid { get; set; }
-        public String PName { get; set; }
-        public String PBreed { get; set; }
-        public String PWeight { get; set; }
-        public String PBorn { get; set; }
+        public string Maccount { get; set; }
+        public string Pname { get; set; }
+        public string Pbreed { get; set; }
+        public string Psex { get; set; }
+        public string Pweight { get; set; }
+        public string PBorn { get; set; }
     }
 }
