@@ -7,7 +7,7 @@
         public string Pname { get; set; }
         public string Pbreed { get; set; }
         public string Psex { get; set; }
-        public string Pweight { get; set; }
-        public string PBorn { get; set; }
+        public float Pweight { get; set; }
+        public DateTime Pborn { get; set; }
     }
 }
