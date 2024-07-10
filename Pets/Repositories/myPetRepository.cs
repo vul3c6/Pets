@@ -58,15 +58,16 @@ namespace Pets.Repositories
         // 更新 myPet 資料（依指定 id）
         public async Task UpdateMyPet(Guid id, myPetForUpdateDto myPet)
         {
-            string sqlQuery = "UPDATE myPet SET PName = @PName, PBreed = @PBreed, PWeight = @PWeight, PBorn = @PBorn WHERE Pid = @Id";
+            string sqlQuery = "UPDATE myPet SET Pname = @Pname, Pbreed = @Pbreed, Psex=@Psex, Pweight = @Pweight, Pborn = @Pborn WHERE Pid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
             parameters.Add("Id", id, DbType.Guid);
-            parameters.Add("PName", myPet.PName, DbType.String);
-            parameters.Add("PBreed", myPet.PBreed, DbType.String);
-            parameters.Add("PWeight", myPet.PWeight, DbType.String);
-            parameters.Add("PBorn", myPet.PBorn, DbType.String);
+            parameters.Add("Pname", myPet.Pname, DbType.String);
+            parameters.Add("Pbreed", myPet.Pbreed, DbType.String);
+            parameters.Add("Psex", myPet.Psex, DbType.String);
+            parameters.Add("Pweight", myPet.Pweight, DbType.String);
+            parameters.Add("Pborn", myPet.Pborn, DbType.String);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {

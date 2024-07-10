@@ -28,8 +28,8 @@ builder.Services.AddSingleton<DbContext>();
 
 builder.Services.AddScoped<IMember, MemberRepository>();
 builder.Services.AddScoped<ImyPet, myPetRepository>();
-//builder.Services.AddScoped<ILost, LostRepository>();
-//builder.Services.AddScoped<IReceive, ReceiveRepository>();
+builder.Services.AddScoped<ILost, LostRepository>();
+builder.Services.AddScoped<IReceive, ReceiveRepository>();
 //builder.Services.AddScoped<IVaccine, VaccineRepository>();
 
 var app = builder.Build();

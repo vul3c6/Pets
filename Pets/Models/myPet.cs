@@ -8,6 +8,6 @@
         public string Pbreed { get; set; }
         public string Psex { get; set; }
         public float Pweight { get; set; }
-        public DateTime Pborn { get; set; }
+        public string Pborn { get; set; }
     }
 }

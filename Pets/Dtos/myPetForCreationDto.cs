@@ -23,7 +23,7 @@ namespace Pets.Dtos
 
         [Required]
         [StringLength(20, ErrorMessage = "Maximum 20 characters")]
-        public DateTime Pborn { get; set; }
+        public string Pborn { get; set; }
 
     }
 }
