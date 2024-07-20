@@ -36,19 +36,19 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetReceiveById(Guid id)
-        //{
-        //    try
-        //    {
-        //        var receive = await _receive.GetReceiveById(id);
-        //        return Ok(new { Success = true, Message = "Receive Returned.", receive });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, ex.Message);
-        //    }
-        //}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetReceiveById(Guid id)
+        {
+            try
+            {
+                var receive = await _receive.GetReceiveById(id);
+                return Ok(new { Success = true, Message = "Receive Returned.", receive });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> CreateReceive(ReceiveForCreationDto receive)
         {

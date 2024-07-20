@@ -30,19 +30,19 @@ namespace Pets.Repositories
                 return receives.ToList();
             }
         }
-        //// 查詢指定id 的走失寵物資料
-        //public async Task<Receive> GetReceiveById(Guid id)
-        //// 新增走失寵物資料
-        //{
-        //    string sqlQuery = "SELECT * FROM receive WHERE Rid = @Id";
-        //    // 建立資料庫連線
-        //    using (var connection = _dbContext.CreateConnection())
-        //    {
-        //        // 執行查詢
-        //        var receive = await connection.QueryFirstOrDefaultAsync<Receive>(sqlQuery, new { Id = id });
-        //        return receive;
-        //    }
-        //}
+        // 查詢指定id 的走失寵物資料
+        public async Task<Receive> GetReceiveById(Guid id)
+        // 新增走失寵物資料
+        {
+            string sqlQuery = "SELECT * FROM receive WHERE Rid = @Id";
+            // 建立資料庫連線
+            using (var connection = _dbContext.CreateConnection())
+            {
+                // 執行查詢
+                var receive = await connection.QueryFirstOrDefaultAsync<Receive>(sqlQuery, new { Id = id });
+                return receive;
+            }
+        }
         public async Task<ReceiveForCreationDto> CreateReceive(ReceiveForCreationDto receive)
         {
             string sqlQuery = "INSERT INTO receive (RBreed, RTime,RPlace,RFeature,RContactlnformation) VALUES (@RBreed, @RTime,@RPlace,@RFeature,@RContactlnformation)";
