@@ -54,27 +54,37 @@ namespace Pets.Repositories
                 return member;
             }
         }
+        //會員登入
+        public async Task<Member> Login(string account, string password)
+        {
+            using (IDbConnection dbConnection = _dbContext.CreateConnection())
+            {
+                string query = "SELECT * FROM Member WHERE Maccount = @Account AND Mpassword = @Password";
+                return await dbConnection.QuerySingleOrDefaultAsync<Member>(query, new { Account = account, Password = password });
+            }
+        }
 
-        // 更新 Member 資料（依指定 id）
-        //public async Task UpdateMember(string Maccount, MemberForUpdateDto member)
-        //{
-        //    string sqlQuery = "UPDATE Member SET MPassword = @MPassword, MName = @MName, Email = @mail WHERE MAccount = @MAccount";
-        //    // 建立參數物件
-        //    var parameters = new DynamicParameters();
-        //    // 加入參數
-        //    parameters.Add("MAccount", member.MAccount, DbType.String);
-        //    parameters.Add("MPassword", member.MPassword, DbType.String);
-        //    parameters.Add("MName", member.MName, DbType.String);
-        //    parameters.Add("mail", member.mail, DbType.String);
-        //    // 建立資料庫連線
-        //    using (var connection = _dbContext.CreateConnection())
-        //    {
-        //        // 執行更新
-        //        await connection.ExecuteAsync(sqlQuery, parameters);
-        //    }
-        //}
+        //更新 Member 資料（依指定 Maccount）
+        public async Task UpdateMember(string Maccount, MemberForUpdateDto member)
+        {
+            string sqlQuery = "UPDATE Member SET MPassword = @MPassword, MName = @MName, Memail = @Memail, Msex=@Msex WHERE MAccount = @MAccount";
+            // 建立參數物件
+            var parameters = new DynamicParameters();
+            // 加入參數
+            parameters.Add("MAccount", member.MAccount, DbType.String);
+            parameters.Add("MPassword", member.MPassword, DbType.String);
+            parameters.Add("MName", member.MName, DbType.String);
+            parameters.Add("Memail", member.Memail, DbType.String);
+            parameters.Add("Msex", member.Msex, DbType.String);
+            // 建立資料庫連線
+            using (var connection = _dbContext.CreateConnection())
+            {
+                // 執行更新
+                await connection.ExecuteAsync(sqlQuery, parameters);
+            }
+        }
 
-        // 刪除 Member 資料（依指定 id）
+        // 刪除 Member 資料（依指定 Maccount）
         public async Task DeleteMember(string Maccount)
         {
             string sqlQuery = "DELETE FROM Member WHERE Maccount = @Maccount";

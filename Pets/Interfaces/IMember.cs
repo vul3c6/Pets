@@ -9,7 +9,9 @@ namespace Pets.Interfaces
         public Task<IEnumerable<Member>> GetAllMembers();
         public Task<Member> GetMemberById(string Maccount);
         public Task<MemberForCreationDto> CreateMember(MemberForCreationDto member);
-        //public Task UpdateMember(string Maccount, MemberForUpdateDto member);
+        public Task<Member> Login(string Maccount, string password);
+
+        public Task UpdateMember(string Maccount, MemberForUpdateDto member);
         public Task DeleteMember(string Maccount);
     }
 }

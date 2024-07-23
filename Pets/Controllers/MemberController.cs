@@ -72,21 +72,33 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-        
-        //[HttpPut]
-        //[Route("{id}")]
-        //public async Task<IActionResult> UpdateMember(string Maccount, MemberForUpdateDto member)
-        //{
-        //    try
-        //    {
-        //        await _member.UpdateMember(Maccount, member);
-        //        return Ok(new { Success = true, Message = "Member Updated." });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, ex.Message);
-        //    }
-        //}
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(MemberForLoginDto memberForLoginDto)
+        {
+            var member = await _member.Login(memberForLoginDto.Maccount, memberForLoginDto.Mpassword);
+            if (member == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(member);
+        }
+
+        [HttpPut]
+        [Route("{Maccount}")]
+        public async Task<IActionResult> UpdateMember(string Maccount, MemberForUpdateDto member)
+        {
+            try
+            {
+                await _member.UpdateMember(Maccount, member);
+                return Ok(new { Success = true, Message = "Member Updated." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
 
         [HttpDelete]
         [Route("{Maccount}")]
