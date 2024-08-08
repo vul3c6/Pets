@@ -45,7 +45,7 @@ namespace Pets.Repositories
         // 新增 Member 資料
         public async Task<MemberForCreationDto> CreateMember(MemberForCreationDto member)
         {
-            string sqlQuery = "INSERT INTO Member (Maccount, Mpassword, Mname, Memail, Msex ) VALUES (@Maccount, @Mpassword, @Mname, @Memail, @Msex )";
+            string sqlQuery = "INSERT INTO Member (Maccount, Mpassword, Mname, Memail, Msex, Mdate ) VALUES (@Maccount, @Mpassword, @Mname, @Memail, @Msex, @Mdate )";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -76,6 +76,7 @@ namespace Pets.Repositories
             parameters.Add("MName", member.MName, DbType.String);
             parameters.Add("Memail", member.Memail, DbType.String);
             parameters.Add("Msex", member.Msex, DbType.String);
+            parameters.Add("Mdate", member.Mdate, DbType.String);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {

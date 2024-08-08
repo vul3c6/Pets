@@ -21,5 +21,7 @@ namespace Pets.Dtos
         public string Memail { get; set; }
         [Required]
         public char Msex { get; set; }
+        [Required]
+        public string Mdate { get; set; }
     }
 }

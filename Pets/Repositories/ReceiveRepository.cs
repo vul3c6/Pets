@@ -62,7 +62,7 @@ namespace Pets.Repositories
             // 加入參數
             parameters.Add("Id", id, DbType.Guid);
             parameters.Add("RBreed", receive.RBreed, DbType.String);
-            parameters.Add("RTime", receive.RTime, DbType.String);
+            parameters.Add("RTime", receive.RTime, DbType.DateTime);
             parameters.Add("RPlace", receive.RPlace, DbType.String);
             parameters.Add("RFeature", receive.RFeature, DbType.String);
             parameters.Add("RContactlnformation", receive.RContactlnformation, DbType.String);

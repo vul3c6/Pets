@@ -9,8 +9,7 @@ namespace Pets.Dtos
         public string RBreed { get; set; }
 
         [Required]
-        [StringLength(20, ErrorMessage = "Maximum 20 characters")] 
-        public String RTime { get; set; }
+        public DateTime RTime { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]

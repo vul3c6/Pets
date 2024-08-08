@@ -20,10 +20,9 @@ namespace Pets.Dtos
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
         public string Memail { get; set; }
 
-        //[Required]
-        //public DateTime Mborn { get; set; }
-
         [Required]
         public char Msex { get; set; }
+        [Required]
+        public string Mdate { get; set; }
     }
 }
