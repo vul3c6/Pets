@@ -67,7 +67,7 @@ namespace Pets.Repositories
         //更新 Member 資料（依指定 Maccount）
         public async Task UpdateMember(string Maccount, MemberForUpdateDto member)
         {
-            string sqlQuery = "UPDATE Member SET MPassword = @MPassword, MName = @MName, Memail = @Memail, Msex=@Msex WHERE MAccount = @MAccount";
+            string sqlQuery = "UPDATE Member SET MPassword = @MPassword, MName = @MName, Memail = @Memail, Msex=@Msex , Mdate = @Mdate WHERE MAccount = @MAccount";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
