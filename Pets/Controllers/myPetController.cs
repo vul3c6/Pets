@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pets.Interfaces;
 using Pets.Dtos;
-using Pets.Models;
+
 
 
 namespace Pets.Controllers
@@ -36,25 +36,25 @@ namespace Pets.Controllers
             }
         }
 
-        //[HttpGet]
-        //[Route("{id}")]
-        //public async Task<IActionResult> GetMyPetById(Guid id)
-        //{
-        //    try
-        //    {
-        //        var myPet = await _myPet.GetMyPetById(id);
-        //        return Ok(new
-        //        {
-        //            Success = true,
-        //            Message = "myPet Returned.",
-        //            myPet
-        //        });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, ex.Message);
-        //    }
-        //}
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> GetMyPetById(Guid id)
+        {
+            try
+            {
+                var myPet = await _myPet.GetMyPetById(id);
+                return Ok(new
+                {
+                    Success = true,
+                    Message = "myPet Returned.",
+                    myPet
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateMyPet(myPetForCreationDto myPet)
@@ -112,5 +112,25 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpGet]
+        [Route("member/{maccount}")]
+        public async Task<IActionResult> GetPetsByMaccount(string maccount)
+        {
+            try
+            {
+                var pets = await _myPet.GetPetsByMaccount(maccount);
+                return Ok(new
+                {
+                    Success = true,
+                    Message = "Pets Returned.",
+                    Pets = pets
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
     }
 }

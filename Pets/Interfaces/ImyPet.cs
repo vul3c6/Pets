@@ -7,9 +7,12 @@ namespace Pets.Interfaces
     {
         // myPet 資料的介面
         public Task<IEnumerable<MyPet>> GetAllMyPets();
-        //public Task<MyPet> GetMyPetById(Guid id);
+        public Task<MyPet> GetMyPetById(Guid id);
         public Task<myPetForCreationDto> CreateMyPet(myPetForCreationDto myPet);
         public Task UpdateMyPet(Guid id, myPetForUpdateDto myPet);
         public Task DeleteMyPet(Guid id);
+        // 查詢單一 Member 資料(依指定 Maccount)
+        public Task<IEnumerable<MyPet>> GetPetsByMaccount(string maccount);
+
     }
 }

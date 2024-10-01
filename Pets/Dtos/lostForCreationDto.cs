@@ -22,5 +22,16 @@ namespace Pets.Dtos
         [Required]
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
         public String LContactlnformation { get; set; }
+
+        [Required]
+        public int ImageID { get; set; }
+        
+        [Required]
+        [StringLength(50, ErrorMessage = "Maximum 255 characters")]
+        public string ImagePath { get; set; }
+
+        [Required]
+        [StringLength(50, ErrorMessage = "Maximum 255 characters")]
+        public string Description { get; set; }
     }
 }
