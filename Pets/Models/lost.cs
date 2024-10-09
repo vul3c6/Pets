@@ -9,8 +9,6 @@
         public string LFeature { get; set; }
         public string LContactlnformation { get; set; }
         public string Maccount { get; set; }
-        public int ImageID { get; set; }
-        public string ImagePath { get; set; }
-        public string Description { get; set; }
+        
     }
 }

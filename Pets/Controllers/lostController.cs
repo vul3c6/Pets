@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pets.Interfaces;
-using Pets.Models;
 using Pets.Dtos;
 
 namespace Pets.Controllers
