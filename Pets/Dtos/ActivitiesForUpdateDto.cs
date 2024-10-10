@@ -5,8 +5,6 @@ namespace Pets.Dtos
     public class ActivitiesForUpdateDto
     {
         [Required]
-        public int Aid { get; set; }
-        [Required]
         public string Pid { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
@@ -15,9 +13,9 @@ namespace Pets.Dtos
         public int ActivitiesDate { get; set; }
         [Required]
         public int ActivitiesMinute { get; set; }
-        [Required]
-        public float Distance { get; set; }
-        [Required]
-        public int Stpes { get; set; }
+        //[Required]
+        //public float Distance { get; set; }
+        //[Required]
+        //public int Stpes { get; set; }
     }
 }

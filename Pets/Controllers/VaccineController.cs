@@ -18,37 +18,37 @@ namespace Pets.Controllers
             _vaccine = vaccine;
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllVaccinePets()
-        //{
-        //    try
-        //    {
-        //        var vaccine = await _vaccine.GetAllVaccinePets();
-        //        return Ok(new
-        //        {
-        //            Success = true,
-        //            Message = "All VaccinePets Returned.",
-        //            vaccine
-        //        });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, ex.Message);
-        //    }
-        //}
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetVaccineById(Guid id)
-        //{
-        //    try
-        //    {
-        //        var vaccine = await _vaccine.GetVaccineById(id);
-        //        return Ok(new { Success = true, Message = "Vaccine Returned.", vaccine });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, ex.Message);
-        //    }
-        //}
+        [HttpGet]
+        public async Task<IActionResult> GetAllVaccinePets()
+        {
+            try
+            {
+                var vaccine = await _vaccine.GetAllVaccinePets();
+                return Ok(new
+                {
+                    Success = true,
+                    Message = "All VaccinePets Returned.",
+                    vaccine
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetVaccineById(Guid id)
+        {
+            try
+            {
+                var vaccine = await _vaccine.GetVaccineById(id);
+                return Ok(new { Success = true, Message = "Vaccine Returned.", vaccine });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> CreateVaccine(VaccineForCreationDto vaccine)
         {
