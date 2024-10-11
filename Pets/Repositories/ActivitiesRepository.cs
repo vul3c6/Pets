@@ -9,7 +9,7 @@ namespace Pets.Repositories
 {
     public class ActivitiesRepository : IActivities
     {
-    
+
         private readonly DbContext _dbContext;
         // 在建構子中初始化DbContext 服務
         public ActivitiesRepository(DbContext dbContext)
@@ -85,8 +85,5 @@ namespace Pets.Repositories
                 await connection.ExecuteAsync(sqlQuery, parameters);
             }
         }
-    
-
-
     }
 }

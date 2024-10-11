@@ -30,7 +30,8 @@ builder.Services.AddScoped<IMember, MemberRepository>();
 builder.Services.AddScoped<ImyPet, myPetRepository>();
 builder.Services.AddScoped<ILost, LostRepository>();
 builder.Services.AddScoped<IReceive, ReceiveRepository>();
-//builder.Services.AddScoped<IVaccine, VaccineRepository>();
+builder.Services.AddScoped<IVaccine, VaccineRepository>();
+builder.Services.AddScoped<IActivities, ActivitiesRepository>();
 
 var app = builder.Build();
 
