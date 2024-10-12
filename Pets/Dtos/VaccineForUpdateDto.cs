@@ -6,10 +6,11 @@ namespace Pets.Dtos
     {
         [Required]
         [StringLength(20, ErrorMessage = "Maximum 20 characters")]
-        public string VName { get; set; }
-
+        public string Vname { get; set; }
+        [Required]
+        public DateTime Vdate { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
-        public String VRemark { get; set; }
+        public string Vremark { get; set; }
     }
 }

@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<VaccineForCreationDto> CreateVaccine(VaccineForCreationDto vaccine)
         {
-            string sqlQuery = "INSERT INTO vaccine (VName) VALUES (@VName)";
+            string sqlQuery = "INSERT INTO vaccine (Pid,Vname,Vdate) VALUES (@Pid,@Vname,@Vdate)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -56,13 +56,14 @@ namespace Pets.Repositories
         }
         public async Task UpdateVaccine(Guid id, VaccineForUpdateDto vaccine)
         {
-            string sqlQuery = "UPDATE vaccine SET VName = @VName, VRemark = @VRemark WHERE Vid = @Id";
+            string sqlQuery = "UPDATE vaccine SET Vname = @Vname, Vdate = @Vdate, Vremark = @Vremark WHERE Vid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
             parameters.Add("Id", id, DbType.Guid);
-            parameters.Add("VName", vaccine.VName, DbType.String);
-            parameters.Add("VRemark", vaccine.VRemark, DbType.String);
+            parameters.Add("Vname", vaccine.Vname, DbType.String);
+            parameters.Add("Vdate", vaccine.Vdate, DbType.DateTime);
+            parameters.Add("Vremark", vaccine.Vremark, DbType.String);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
