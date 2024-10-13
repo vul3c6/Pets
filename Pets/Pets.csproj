@@ -9,6 +9,8 @@
   <ItemGroup>
     <Compile Remove="Controllers\CrossController.cs" />
     <Compile Remove="Interfaces\ICross.cs" />
+    <Compile Remove="Models\Comment.cs" />
+    <Compile Remove="Models\socialMedia.cs" />
     <Compile Remove="Repositories\CrossRepositories.cs" />
   </ItemGroup>
 
