@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\CrossController.cs" />
+    <Compile Remove="Controllers\DietRecoeds.cs" />
     <Compile Remove="Interfaces\ICross.cs" />
     <Compile Remove="Models\Comment.cs" />
     <Compile Remove="Models\socialMedia.cs" />
@@ -16,6 +17,7 @@
 
   <ItemGroup>
     <None Remove="Dtos\ActivitiesForUpdateDto.cd" />
+    <None Remove="Dtos\DietRecoedsForUpdateDto.cd" />
   </ItemGroup>
 
   <ItemGroup>

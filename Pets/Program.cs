@@ -32,6 +32,7 @@ builder.Services.AddScoped<ILost, LostRepository>();
 builder.Services.AddScoped<IReceive, ReceiveRepository>();
 builder.Services.AddScoped<IVaccine, VaccineRepository>();
 builder.Services.AddScoped<IActivities, ActivitiesRepository>();
+builder.Services.AddScoped<IDietRecoeds, DietRecoedsRepository>();
 
 var app = builder.Build();
 
