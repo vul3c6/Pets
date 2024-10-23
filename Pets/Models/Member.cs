@@ -8,5 +8,6 @@
         public string Memail { get; set; }
         public string Mdate { get; set; }
         public char Msex { get; set; }
+        //public Mdate 
     }
 }

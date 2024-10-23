@@ -15,7 +15,7 @@ namespace Pets.Repositories
             // 注入 DbContext 服務
             _dbContext = dbContext;
         }
-        // 查詢所有 Member 資料的實作
+        // Member 資料的實作
         public async Task<IEnumerable<Member>> GetAllMembers()
         {
             string sqlQuery = "SELECT * FROM member";
@@ -28,7 +28,6 @@ namespace Pets.Repositories
             }
         }
 
-        // 查詢單一 Member 資料（依指定 Id）
         public async Task<Member> GetMemberById(string Maccount)
         {
             string sqlQuery = "SELECT * FROM Member WHERE Maccount = @Maccount";
@@ -42,7 +41,6 @@ namespace Pets.Repositories
             }
         }
 
-        // 新增 Member 資料
         public async Task<MemberForCreationDto> CreateMember(MemberForCreationDto member)
         {
             string sqlQuery = "INSERT INTO Member (Maccount, Mpassword, Mname, Memail, Msex, Mdate ) VALUES (@Maccount, @Mpassword, @Mname, @Memail, @Msex, @Mdate )";
@@ -64,7 +62,6 @@ namespace Pets.Repositories
             }
         }
 
-        //更新 Member 資料（依指定 Maccount）
         public async Task UpdateMember(string Maccount, MemberForUpdateDto member)
         {
             string sqlQuery = "UPDATE Member SET MPassword = @MPassword, MName = @MName, Memail = @Memail, Msex=@Msex , Mdate = @Mdate WHERE MAccount = @MAccount";
@@ -85,7 +82,6 @@ namespace Pets.Repositories
             }
         }
 
-        // 刪除 Member 資料（依指定 Maccount）
         public async Task DeleteMember(string Maccount)
         {
             string sqlQuery = "DELETE FROM Member WHERE Maccount = @Maccount";

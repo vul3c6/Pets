@@ -102,6 +102,5 @@ namespace Pets.Repositories
                 return pets;
             }
         }
-
     }
 }
