@@ -88,5 +88,18 @@ namespace Pets.Repositories
                 await connection.ExecuteAsync(sqlQuery, parameters);
             }
         }
+        // 查詢多筆 DietRecords 資料(依指定 Pid)
+        public async Task<IEnumerable<DietRecords>> GetDietRecordsByPid(Guid pid)
+        {
+            string sqlQuery = "SELECT * FROM dietRecoeds WHERE Pid = @Pid";
+
+            // 建立資料庫連線
+            using (var connection = _dbContext.CreateConnection())
+            {
+                // 執行查詢
+                var dietRecords = await connection.QueryAsync<DietRecords>(sqlQuery, new { Pid = pid });
+                return dietRecords.ToList();
+            }
+        }
     }
 }

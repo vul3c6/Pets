@@ -15,5 +15,8 @@ namespace Pets.Interfaces
         public Task UpdateDietRecords(Guid id, DietRecoedsForUpdateDto DietRecord);
         // 刪除DietRecords資料（依指定id）
         public Task DeleteDietRecords(Guid id);
+        // 查詢多筆 DietRecords 資料(依指定 Pid)
+        public Task<IEnumerable<DietRecords>> GetDietRecordsByPid(Guid pid);
+
     }
 }

@@ -90,5 +90,24 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpGet]
+        [Route("myPet/{pid}")]
+        public async Task<IActionResult> GetDietRecordsByPid(Guid pid)
+        {
+            try
+            {
+                var dietRecords = await _DietRecoeds.GetDietRecordsByPid(pid);
+                return Ok(new
+                {
+                    Success = true,
+                    Message = "DietRecords Returned.",
+                    DietRecords = dietRecords
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }
