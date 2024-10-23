@@ -88,6 +88,7 @@ namespace Pets.Repositories
                 await connection.ExecuteAsync(sqlQuery, parameters);
             }
         }
+        //ByMaccount
         public async Task<IEnumerable<Receive>> GetReceivesByMaccount(string Maccount)
         {
             string sqlQuery = "SELECT * FROM receive WHERE Maccount = @Maccount";

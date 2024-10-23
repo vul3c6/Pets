@@ -8,12 +8,12 @@ namespace Pets.Dtos
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
         public string Atype { get; set; }
         [Required]
-        public int ActivitiesDate { get; set; }
+        public DateTime startTime { get; set; }
         [Required]
-        public int ActivitiesMinute { get; set; }
+        public DateTime endTime { get; set; }
         [Required]
-        public float Distance { get; set; }
+        public float distance { get; set; }
         [Required]
-        public int Stpes { get; set; }
+        public int stpes { get; set; }
     }
 }

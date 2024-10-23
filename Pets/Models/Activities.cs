@@ -3,7 +3,7 @@
     public class Activities
     {
         public Guid Aid { get; set; }
-        public Guid Pid { get; set; }
+        public string Pid { get; set; }
         public string Atype { get; set; }
         public DateTime startTime {  get; set; }
         public DateTime endTime { get; set; }

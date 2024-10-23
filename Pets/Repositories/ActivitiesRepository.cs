@@ -46,7 +46,7 @@ namespace Pets.Repositories
         }
         public async Task<ActivitiesForCreactionDto> CreateActivities(ActivitiesForCreactionDto activities)
         {
-            string sqlQuery = "INSERT INTO Activities (Pid,Atype,ActivitiesDate,ActivitiesMinute) VALUES (@Pid,@Atype,@ActivitiesDate,@ActivitiesMinute)";
+            string sqlQuery = "INSERT INTO Activities (Pid,Atype,startTime,endTime) VALUES (@Pid,@Atype,@startTime,@endTime)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -57,15 +57,16 @@ namespace Pets.Repositories
         }
         public async Task UpdateActivities(Guid id, ActivitiesForUpdateDto activities)
         {
-            string sqlQuery = "UPDATE Activities SET Atype = @Atype, ActivitiesDate = @ActivitiesDate, Distance = @Distance, Stpes = @Stpes WHERE Aid = @Id";
+            string sqlQuery = "UPDATE Activities SET Atype = @Atype, startTime = @startTime, endTime = @endTime, distance = @distance, stpes = @stpes WHERE Aid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
             parameters.Add("Id", id, DbType.Guid);
             parameters.Add("Atype", activities.Atype, DbType.String);
-            parameters.Add("ActivitiesDate", activities.ActivitiesDate, DbType.Int64);
-            parameters.Add("Distance", activities.Distance, DbType.Single);
-            parameters.Add("Stpes", activities.Stpes, DbType.Int64);
+            parameters.Add("startTime", activities.startTime, DbType.DateTime);
+            parameters.Add("endTime", activities.endTime, DbType.DateTime);
+            parameters.Add("distance", activities.distance, DbType.Single);
+            parameters.Add("stpes", activities.stpes, DbType.Int16);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
