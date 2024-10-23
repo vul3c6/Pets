@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<ReceiveForCreationDto> CreateReceive(ReceiveForCreationDto receive)
         {
-            string sqlQuery = "INSERT INTO receive (RBreed, RTime,RPlace,RFeature,RContactlnformation) VALUES (@RBreed, @RTime,@RPlace,@RFeature,@RContactlnformation)";
+            string sqlQuery = "INSERT INTO receive (RBreed, RTime,RPlace,RFeature,RContactlnformation,Maccount) VALUES (@RBreed, @RTime,@RPlace,@RFeature,@RContactlnformation,@Maccount)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -56,7 +56,7 @@ namespace Pets.Repositories
         }
         public async Task UpdateReceive(Guid id, ReceiveForUpdateDto receive)
         {
-            string sqlQuery = "UPDATE receive SET RBreed = @RBreed, RTime = @RTime, RPlace = @RPlace, RFeature = @RFeature,RContactlnformation=@RContactlnformation WHERE Rid = @Id";
+            string sqlQuery = "UPDATE receive SET RBreed = @RBreed, RTime = @RTime, RPlace = @RPlace, RFeature = @RFeature,RContactlnformation=@RContactlnformation,Maccount=@Maccount WHERE Rid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
@@ -66,6 +66,7 @@ namespace Pets.Repositories
             parameters.Add("RPlace", receive.RPlace, DbType.String);
             parameters.Add("RFeature", receive.RFeature, DbType.String);
             parameters.Add("RContactlnformation", receive.RContactlnformation, DbType.String);
+            parameters.Add("Maccount", receive.Maccount, DbType.String);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {

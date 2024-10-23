@@ -22,5 +22,8 @@ namespace Pets.Dtos
         [Required]
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
         public String RContactlnformation { get; set; }
+        [Required]
+        [StringLength(50, ErrorMessage = "Maximum 50 characters")]
+        public String Maccount { get; set; }
     }
-    }
+}

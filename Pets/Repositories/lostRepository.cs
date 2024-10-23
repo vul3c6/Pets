@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<LostForCreationDto> CreateLost(LostForCreationDto lost)
         {
-            string sqlQuery = "INSERT INTO lost (LBreed, LTime,LPlace,LFeature,LContactlnformation) VALUES (@LBreed, @LTime,@LPlace,@LFeature,@LContactlnformation)";
+            string sqlQuery = "INSERT INTO lost (LBreed, LTime,LPlace,LFeature,LContactlnformation,Maccount) VALUES (@LBreed, @LTime,@LPlace,@LFeature,@LContactlnformation,@Maccount)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -56,7 +56,7 @@ namespace Pets.Repositories
         }
         public async Task UpdateLost(Guid id, LostForUpdateDto lost)
         {
-            string sqlQuery = "UPDATE lost SET LBreed = @LBreed, LTime = @LTime, LPlace = @LPlace, LFeature = @LFeature,LContactlnformation=@LContactlnformation WHERE Lid = @Id";
+            string sqlQuery = "UPDATE lost SET LBreed = @LBreed, LTime = @LTime, LPlace = @LPlace, LFeature = @LFeature,LContactlnformation=@LContactlnformation,Maccount=@Maccount WHERE Lid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
@@ -66,6 +66,7 @@ namespace Pets.Repositories
             parameters.Add("LPlace", lost.LPlace, DbType.String);
             parameters.Add("LFeature", lost.LFeature, DbType.String);
             parameters.Add("LContactlnformation", lost.LContactlnformation, DbType.String);
+            parameters.Add("Maccount", lost.Maccount, DbType.String);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
