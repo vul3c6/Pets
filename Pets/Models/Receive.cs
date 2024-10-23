@@ -8,5 +8,6 @@
         public string RPlace { get; set; }
         public string RFeature { get; set; }
         public string RContactlnformation { get; set; }
+        public string Maccount { get; set; }
     }
 }

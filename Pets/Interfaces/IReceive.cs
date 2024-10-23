@@ -11,5 +11,6 @@ namespace Pets.Interfaces
         public Task<ReceiveForCreationDto> CreateReceive(ReceiveForCreationDto receive);
         public Task UpdateReceive(Guid id, ReceiveForUpdateDto receive);
         public Task DeleteReceive(Guid id);
+        public Task<IEnumerable<Receive>> GetReceivesByMaccount(string Maccount);
     }
 }

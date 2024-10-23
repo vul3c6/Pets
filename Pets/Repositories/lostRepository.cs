@@ -87,5 +87,16 @@ namespace Pets.Repositories
                 await connection.ExecuteAsync(sqlQuery, parameters);
             }
         }
+        public async Task<List<Lost>> GetLostsByMaccount(string Maccount)
+        {
+            string sqlQuery = "SELECT * FROM lost WHERE Maccount = @Maccount";
+            // 建立資料庫連線
+            using (var connection = _dbContext.CreateConnection())
+            {
+                // 執行查詢，回傳多筆資料
+                var losts = await connection.QueryAsync<Lost>(sqlQuery, new { Maccount = Maccount });
+                return losts.ToList();
+            }
+        }
     }
 }

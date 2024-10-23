@@ -11,5 +11,6 @@ namespace Pets.Interfaces
         public Task<LostForCreationDto> CreateLost(LostForCreationDto lost);
         public Task UpdateLost(Guid id, LostForUpdateDto lost);
         public Task DeleteLost(Guid id);
+        public Task<List<Lost>> GetLostsByMaccount(string Maccount);
     }
 }

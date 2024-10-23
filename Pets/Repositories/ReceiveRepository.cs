@@ -87,5 +87,16 @@ namespace Pets.Repositories
                 await connection.ExecuteAsync(sqlQuery, parameters);
             }
         }
+        public async Task<IEnumerable<Receive>> GetReceivesByMaccount(string Maccount)
+        {
+            string sqlQuery = "SELECT * FROM receive WHERE Maccount = @Maccount";
+            // 建立資料庫連線
+            using (var connection = _dbContext.CreateConnection())
+            {
+                // 執行查詢
+                var receives = await connection.QueryAsync<Receive>(sqlQuery, new { Maccount = Maccount });
+                return receives;
+            }
+        }
     }
 }

@@ -89,5 +89,19 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpGet]
+        [Route("member/{Maccount}")]
+        public async Task<IActionResult> GetLostsByMaccount(string Maccount)
+        {
+            try
+            {
+                var losts = await _lost.GetLostsByMaccount(Maccount);
+                return Ok(new { Success = true, Message = "Losts Returned.", losts });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

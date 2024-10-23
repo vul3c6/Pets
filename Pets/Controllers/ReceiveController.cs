@@ -90,5 +90,19 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpGet]
+        [Route("member/{Maccount}")]
+        public async Task<IActionResult> GetReceivesByMaccount(string Maccount)
+        {
+            try
+            {
+                var Receives = await _receive.GetReceivesByMaccount(Maccount);
+                return Ok(new { Success = true, Message = "Receives Returned.", Receives });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }
