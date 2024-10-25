@@ -25,5 +25,11 @@ namespace Pets.Dtos
         [Required]
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
         public String Maccount { get; set; }
+        [Required]
+        [StringLength(255, ErrorMessage = "Maximum 255 characters")]
+        public String Img { get; set; }
+        [Required]
+        [StringLength(50, ErrorMessage = "Maximum 50 characters")]
+        public String name { get; set; }
     }
 }
