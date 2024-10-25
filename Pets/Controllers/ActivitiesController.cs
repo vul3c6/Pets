@@ -90,5 +90,24 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpGet]
+        [Route("myPet/{pid}")]
+        public async Task<IActionResult> GetActivtiesByPid(Guid pid)
+        {
+            try
+            {
+                var Activties = await _activities.GetActivitiesByPid(pid);
+                return Ok(new
+                {
+                    Success = true,
+                    Message = "Activties Returned.",
+                    DietRecords = Activties
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

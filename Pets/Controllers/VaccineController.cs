@@ -90,5 +90,24 @@ namespace Pets.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpGet]
+        [Route("myPet/{pid}")]
+        public async Task<IActionResult> GetVaccinesByPid(Guid pid)
+        {
+            try
+            {
+                var Vaccines = await _vaccine.GetVaccinesByPid(pid);
+                return Ok(new
+                {
+                    Success = true,
+                    Message = "Vaccines Returned.",
+                    Vaccines = _vaccine
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }

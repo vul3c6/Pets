@@ -17,7 +17,7 @@ namespace Pets.Repositories
             // 注入DbContext 服務
             _dbContext = dbContext;
         }
-        // 查詢所有活動資料的實作
+// 查詢所有活動資料的實作
         public async Task<IEnumerable<Activities>> GetAllActivities()
         {
             // 設定查詢用的SQL 語法
@@ -31,9 +31,8 @@ namespace Pets.Repositories
                 return Activities.ToList();
             }
         }
-        // 查詢指定id 的疫苗資料
+        // 
         public async Task<Activities> GetActivitiesById(Guid id)
-        // 新增走失寵物資料
         {
             string sqlQuery = "SELECT * FROM Activities WHERE Aid = @Id";
             // 建立資料庫連線
@@ -57,7 +56,7 @@ namespace Pets.Repositories
         }
         public async Task UpdateActivities(Guid id, ActivitiesForUpdateDto activities)
         {
-            string sqlQuery = "UPDATE Activities SET Atype = @Atype, startTime = @startTime, endTime = @endTime, distance = @distance, stpes = @stpes WHERE Aid = @Id";
+            string sqlQuery = "UPDATE Activities SET Atype = @Atype, startTime = @startTime, endTime = @endTime, distance = @distance, Steps = @Steps WHERE Aid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
@@ -66,7 +65,7 @@ namespace Pets.Repositories
             parameters.Add("startTime", activities.startTime, DbType.DateTime);
             parameters.Add("endTime", activities.endTime, DbType.DateTime);
             parameters.Add("distance", activities.distance, DbType.Single);
-            parameters.Add("stpes", activities.stpes, DbType.Int16);
+            parameters.Add("Steps", activities.Steps, DbType.Int16);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -86,6 +85,20 @@ namespace Pets.Repositories
             {
                 // 執行刪除
                 await connection.ExecuteAsync(sqlQuery, parameters);
+            }
+        }
+
+        // 查詢多筆 Activties 資料(依指定 Pid)
+        public async Task<IEnumerable<Activities>> GetActivitiesByPid(Guid pid)
+        {
+            string sqlQuery = "SELECT * FROM Activities WHERE Pid = @Pid";
+
+            // 建立資料庫連線
+            using (var connection = _dbContext.CreateConnection())
+            {
+                // 執行查詢
+                var Activties = await connection.QueryAsync<Activities>(sqlQuery, new { Pid = pid });
+                return Activties.ToList();
             }
         }
     }

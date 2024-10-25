@@ -85,5 +85,17 @@ namespace Pets.Repositories
                 await connection.ExecuteAsync(sqlQuery, parameters);
             }
         }
+        public async Task<IEnumerable<Vaccine>> GetVaccinesByPid(Guid pid)
+        {
+            string sqlQuery = "SELECT * FROM vaccine WHERE Pid = @Pid";
+
+            // 建立資料庫連線
+            using (var connection = _dbContext.CreateConnection())
+            {
+                // 執行查詢
+                var Vaccines = await connection.QueryAsync<Vaccine>(sqlQuery, new { Pid = pid });
+                return Vaccines.ToList();
+            }
+        }
     }
 }

@@ -14,6 +14,6 @@ namespace Pets.Dtos
         [Required]
         public float distance { get; set; }
         [Required]
-        public int stpes { get; set; }
+        public int Steps { get; set; }
     }
 }

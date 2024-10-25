@@ -15,5 +15,7 @@ namespace Pets.Interfaces
         public Task UpdateActivities(Guid id, ActivitiesForUpdateDto activities);
         // 刪除Activities 資料（依指定id）
         public Task DeleteActivities(Guid id);
+        //
+        public Task<IEnumerable<Activities>> GetActivitiesByPid(Guid pid);
     }
 }
