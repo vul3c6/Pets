@@ -85,7 +85,7 @@ namespace Pets.Repositories
                 await connection.ExecuteAsync(sqlQuery, parameters);
             }
         }
-        public async Task<IEnumerable<Vaccine>> GetVaccinesByPid(Guid pid)
+        public async Task<IEnumerable<Vaccine>> GetVaccinesByPid(string pid)
         {
             string sqlQuery = "SELECT * FROM vaccine WHERE Pid = @Pid";
 
@@ -93,8 +93,8 @@ namespace Pets.Repositories
             using (var connection = _dbContext.CreateConnection())
             {
                 // 執行查詢
-                var Vaccines = await connection.QueryAsync<Vaccine>(sqlQuery, new { Pid = pid });
-                return Vaccines.ToList();
+                var vaccine = await connection.QueryAsync<Vaccine>(sqlQuery, new { Pid = pid });
+                return vaccine.ToList();
             }
         }
     }

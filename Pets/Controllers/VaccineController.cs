@@ -92,16 +92,16 @@ namespace Pets.Controllers
         }
         [HttpGet]
         [Route("myPet/{pid}")]
-        public async Task<IActionResult> GetVaccinesByPid(Guid pid)
+        public async Task<IActionResult> GetVaccinesByPid(string pid)
         {
             try
             {
-                var Vaccines = await _vaccine.GetVaccinesByPid(pid);
+                var vaccines = await _vaccine.GetVaccinesByPid(pid);
                 return Ok(new
                 {
                     Success = true,
                     Message = "Vaccines Returned.",
-                    Vaccines = _vaccine
+                    Vaccines = vaccines
                 });
             }
             catch (Exception ex)

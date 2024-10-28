@@ -11,7 +11,7 @@ namespace Pets.Interfaces
         public Task<VaccineForCreationDto> CreateVaccine(VaccineForCreationDto vaccine);
         public Task UpdateVaccine(Guid id, VaccineForUpdateDto vaccine);
         public Task DeleteVaccine(Guid id);
-        //
-        public Task<IEnumerable<Vaccine>> GetVaccinesByPid(Guid pid);
+        // 查詢多筆 Vaccine 資料(依指定 Pid)
+        public Task<IEnumerable<Vaccine>> GetVaccinesByPid(string pid);
     }
 }
