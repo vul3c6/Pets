@@ -28,7 +28,7 @@ namespace Pets.Repositories
             }
         }
 
-        //查詢單一 myPets 資料（依指定 Id）
+        //查詢單一 myPet 資料（依指定 Id）
         public async Task<MyPet> GetMyPetById(Guid id)
         {
             string sqlQuery = "SELECT * FROM myPet WHERE Pid = @Id";
@@ -36,13 +36,13 @@ namespace Pets.Repositories
             using (var connection = _dbContext.CreateConnection())
             {
                 // 執行查詢
-                var myPet = await
+                var myPets = await
                 connection.QueryFirstOrDefaultAsync<MyPet>(sqlQuery, new { Id = id });
-                return myPet;
+                return myPets;
             }
         }
 
-        // 新增 myPets 資料
+        // 新增 myPet 資料
         public async Task<myPetForCreationDto> CreateMyPet(myPetForCreationDto myPet)
         {
             string sqlQuery = "INSERT INTO myPet (Maccount, Pname, Pbreed, Psex, Pweight, Pborn) VALUES (@Maccount, @Pname, @Pbreed, @Psex, @Pweight, @Pborn)";
@@ -92,6 +92,7 @@ namespace Pets.Repositories
                 await connection.ExecuteAsync(sqlQuery, parameters);
             }
         }
+        //查詢 myPet 指定 Maccount
         public async Task<IEnumerable<MyPet>> GetPetsByMaccount(string maccount)
         {
             string sqlQuery = "SELECT * FROM myPet WHERE Maccount = @Maccount";

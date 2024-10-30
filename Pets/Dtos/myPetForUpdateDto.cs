@@ -6,22 +6,22 @@ namespace Pets.Dtos
     {
         [Required]
         [StringLength(20, ErrorMessage = "Maximum 20 characters")]
-        public String Pname { get; set; }
+        public string Pname { get; set; }
 
         [Required]
         [StringLength(10, ErrorMessage = "Maximum 10 characters")]
-        public String Pbreed { get; set; }
+        public string Pbreed { get; set; }
 
         [Required]
-        [StringLength(10, ErrorMessage = "Maximum 10 characters")]
-        public String Psex { get; set; }
+        [StringLength(1, ErrorMessage = "Maximum 1 characters")]
+        public string Psex { get; set; }
 
         [Required]
         public float Pweight { get; set; }
 
         [Required]
         [StringLength(20, ErrorMessage = "Maximum 20 characters")]
-        public String Pborn { get; set; }
+        public string Pborn { get; set; }
 
     }
 }

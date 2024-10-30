@@ -42,12 +42,12 @@ namespace Pets.Controllers
         {
             try
             {
-                var myPet = await _myPet.GetMyPetById(id);
+                var myPets = await _myPet.GetMyPetById(id);
                 return Ok(new
                 {
                     Success = true,
                     Message = "myPet Returned.",
-                    myPet
+                    myPets
                 });
             }
             catch (Exception ex)

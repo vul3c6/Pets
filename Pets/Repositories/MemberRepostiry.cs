@@ -27,7 +27,7 @@ namespace Pets.Repositories
                 return members.ToList();
             }
         }
-
+        // Member 單一資料的實作
         public async Task<Member> GetMemberById(string Maccount)
         {
             string sqlQuery = "SELECT * FROM member WHERE Maccount = @MAccount";
@@ -40,7 +40,7 @@ namespace Pets.Repositories
                 return members;
             }
         }
-
+        // Member 創建資料的實作
         public async Task<MemberForCreationDto> CreateMember(MemberForCreationDto member)
         {
             string sqlQuery = "INSERT INTO member (Maccount, Mpassword, Mname, Memail, Msex, Mdate ) VALUES (@Maccount, @Mpassword, @Mname, @Memail, @Msex, @Mdate )";
@@ -52,7 +52,7 @@ namespace Pets.Repositories
                 return member;
             }
         }
-        //會員登入
+        // Member 會員登入的實作
         public async Task<Member> Login(string account, string password)
         {
             using (IDbConnection dbConnection = _dbContext.CreateConnection())
@@ -61,7 +61,7 @@ namespace Pets.Repositories
                 return await dbConnection.QuerySingleOrDefaultAsync<Member>(query, new { Account = account, Password = password });
             }
         }
-
+        // Member 更新資料的實作
         public async Task UpdateMember(string Maccount, MemberForUpdateDto member)
         {
             string sqlQuery = "UPDATE member SET Mpassword = @Mpassword, Mname = @Mname, Memail = @Memail, Msex= @Msex , Mdate = @Mdate WHERE Maccount = @Maccount";
@@ -81,7 +81,7 @@ namespace Pets.Repositories
                 await connection.ExecuteAsync(sqlQuery, parameters);
             }
         }
-
+        // Member 刪除資料的實作
         public async Task DeleteMember(string Maccount)
         {
             string sqlQuery = "DELETE FROM member WHERE Maccount = @Account";
