@@ -40,12 +40,12 @@ namespace Pets.Controllers
         {
             try
             {
-                var member = await _member.GetMemberById(Maccount);
+                var members = await _member.GetMemberById(Maccount);
                 return Ok(new
                 {
                     Success = true,
                     Message = "Member Returned.",
-                    member
+                    members
                 });
             }
             catch (Exception ex)
@@ -76,13 +76,13 @@ namespace Pets.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(MemberForLoginDto memberForLoginDto)
         {
-            var member = await _member.Login(memberForLoginDto.Maccount, memberForLoginDto.Mpassword);
-            if (member == null)
+            var members = await _member.Login(memberForLoginDto.Maccount, memberForLoginDto.Mpassword);
+            if (members == null)
             {
                 return Unauthorized();
             }
 
-            return Ok(member);
+            return Ok(members);
         }
 
         [HttpPut]

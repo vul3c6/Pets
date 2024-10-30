@@ -30,20 +30,20 @@ namespace Pets.Repositories
 
         public async Task<Member> GetMemberById(string Maccount)
         {
-            string sqlQuery = "SELECT * FROM Member WHERE Maccount = @Maccount";
+            string sqlQuery = "SELECT * FROM member WHERE Maccount = @MAccount";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
                 // 執行查詢
-                var member = await
-                connection.QueryFirstOrDefaultAsync<Member>(sqlQuery, new { Maccount = Maccount });
-                return member;
+                var members = await
+                connection.QueryFirstOrDefaultAsync<Member>(sqlQuery, new { MAccount = Maccount });
+                return members;
             }
         }
 
         public async Task<MemberForCreationDto> CreateMember(MemberForCreationDto member)
         {
-            string sqlQuery = "INSERT INTO Member (Maccount, Mpassword, Mname, Memail, Msex, Mdate ) VALUES (@Maccount, @Mpassword, @Mname, @Memail, @Msex, @Mdate )";
+            string sqlQuery = "INSERT INTO member (Maccount, Mpassword, Mname, Memail, Msex, Mdate ) VALUES (@Maccount, @Mpassword, @Mname, @Memail, @Msex, @Mdate )";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -64,13 +64,13 @@ namespace Pets.Repositories
 
         public async Task UpdateMember(string Maccount, MemberForUpdateDto member)
         {
-            string sqlQuery = "UPDATE Member SET MPassword = @MPassword, MName = @MName, Memail = @Memail, Msex= @Msex , Mdate = @Mdate WHERE MAccount = @MAccount";
+            string sqlQuery = "UPDATE member SET Mpassword = @Mpassword, Mname = @Mname, Memail = @Memail, Msex= @Msex , Mdate = @Mdate WHERE Maccount = @Maccount";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
-            parameters.Add("MAccount", member.MAccount, DbType.String);
-            parameters.Add("MPassword", member.MPassword, DbType.String);
-            parameters.Add("MName", member.MName, DbType.String);
+            parameters.Add("Maccount", member.Maccount, DbType.String);
+            parameters.Add("Mpassword", member.Mpassword, DbType.String);
+            parameters.Add("Mname", member.Mname, DbType.String);
             parameters.Add("Memail", member.Memail, DbType.String);
             parameters.Add("Msex", member.Msex, DbType.String);
             parameters.Add("Mdate", member.Mdate, DbType.String);
@@ -84,11 +84,11 @@ namespace Pets.Repositories
 
         public async Task DeleteMember(string Maccount)
         {
-            string sqlQuery = "DELETE FROM Member WHERE Maccount = @Maccount";
+            string sqlQuery = "DELETE FROM member WHERE Maccount = @Account";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
-            parameters.Add("Maccount", Maccount, DbType.String);
+            parameters.Add("Account", Maccount, DbType.String);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {

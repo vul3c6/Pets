@@ -21,8 +21,10 @@ namespace Pets.Dtos
         public string Memail { get; set; }
 
         [Required]
-        public char Msex { get; set; }
+        [StringLength(1, ErrorMessage = "Maximum 1 characters")]
+        public string Msex { get; set; }
         [Required]
+        [StringLength(10, ErrorMessage = "Maximum 10 characters")]
         public string Mdate { get; set; }
     }
 }
