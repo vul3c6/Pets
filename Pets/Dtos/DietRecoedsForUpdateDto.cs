@@ -4,15 +4,13 @@ namespace Pets.Dtos
 {
     public class DietRecoedsForUpdateDto
     {
-        //[Required]
-        //public string Pid { get; set; }
         [Required]
         public DateTime mealTime { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
         public string foodType { get; set; }
         [Required]
-        public int amount { get; set; }
+        public int Amount { get; set; }
         [Required]
         public int waterIntake { get; set; }
         [Required]

@@ -10,9 +10,9 @@ namespace Pets.Interfaces
         // 查詢單一DietRecords資料（依指定id）
         public Task<DietRecords> GetDietRecordsById(Guid id);
         // 新增DietRecords資料
-        public Task<DietRecoedsForCreactionDto> CreateDietRecords(DietRecoedsForCreactionDto DietRecord);
+        public Task<DietRecoedsForCreactionDto> CreateDietRecords(DietRecoedsForCreactionDto DietRecords);
         // 更新DietRecords資料（依指定id）
-        public Task UpdateDietRecords(Guid id, DietRecoedsForUpdateDto DietRecord);
+        public Task UpdateDietRecords(Guid id, DietRecoedsForUpdateDto DietRecords);
         // 刪除DietRecords資料（依指定id）
         public Task DeleteDietRecords(Guid id);
         // 查詢多筆 DietRecords 資料(依指定 Pid)

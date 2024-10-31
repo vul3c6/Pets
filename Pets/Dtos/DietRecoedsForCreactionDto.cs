@@ -9,7 +9,7 @@ namespace Pets.Dtos
         [Required]
         public DateTime mealTime { get; set; }
         [Required]
-        public int amount { get; set; }
+        public int Amount { get; set; }
         [Required]
         public int waterIntake { get; set; }
     }

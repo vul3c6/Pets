@@ -20,53 +20,53 @@ namespace Pets.Repositories
         public async Task<IEnumerable<DietRecords>> GetAllDietRecoeds()
         {
             // 設定查詢用的SQL 語法
-            string sqlQuery = "SELECT * FROM DietRecoeds";
+            string sqlQuery = "SELECT * FROM dietRecoeds";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
                 // 執行查詢
-                var DietRecoed = await connection.QueryAsync<DietRecords>(sqlQuery);
+                var DietRecoeds = await connection.QueryAsync<DietRecords>(sqlQuery);
 
-                return DietRecoed.ToList();
+                return DietRecoeds.ToList();
             }
         }
         // 查詢指定id 的飲食資料
         public async Task<DietRecords> GetDietRecordsById(Guid id)
         // 新增走失寵物資料
         {
-            string sqlQuery = "SELECT * FROM DietRecoeds WHERE DRid = @Id";
+            string sqlQuery = "SELECT * FROM dietRecoeds WHERE DRid = @Id";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
                 // 執行查詢
-                var DietRecoed = await connection.QueryFirstOrDefaultAsync<DietRecords>(sqlQuery, new { Id = id });
-                return DietRecoed;
+                var DietRecoeds = await connection.QueryFirstOrDefaultAsync<DietRecords>(sqlQuery, new { Id = id });
+                return DietRecoeds;
             }
         }
-        public async Task<DietRecoedsForCreactionDto> CreateDietRecords(DietRecoedsForCreactionDto DietRecoed)
+        public async Task<DietRecoedsForCreactionDto> CreateDietRecords(DietRecoedsForCreactionDto DietRecoeds)
         {
-            string sqlQuery = "INSERT INTO DietRecoeds (Pid,mealTime,amount,waterIntake) VALUES (@Pid,@mealTime,@amount,@waterIntake)";
+            string sqlQuery = "INSERT INTO dietRecoeds (Pid,mealTime,Amount,waterIntake) VALUES (@Pid,@mealTime,@Amount,@waterIntake)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
                 // 執行新增
-                await connection.ExecuteAsync(sqlQuery, DietRecoed);
-                return DietRecoed;
+                await connection.ExecuteAsync(sqlQuery, DietRecoeds);
+                return DietRecoeds;
             }
         }
-        public async Task UpdateDietRecords(Guid id, DietRecoedsForUpdateDto DietRecoed)
+        public async Task UpdateDietRecords(Guid id, DietRecoedsForUpdateDto DietRecoeds)
         {
-            string sqlQuery = "UPDATE DietRecoeds SET mealTime = @mealTime, foodType = @foodType, amount = @amount, waterIntake = @waterIntake, petReaction = @petReaction, DRremark = @DRremark WHERE DRid = @Id";
+            string sqlQuery = "UPDATE dietRecoeds SET mealTime = @mealTime, foodType = @foodType, Amount = @Amount, waterIntake = @waterIntake, petReaction = @petReaction, DRremark = @DRremark WHERE DRid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
             parameters.Add("Id", id, DbType.Guid);
-            parameters.Add("mealTime", DietRecoed.mealTime, DbType.DateTime);
-            parameters.Add("foodType", DietRecoed.foodType, DbType.String);
-            parameters.Add("amount", DietRecoed.amount, DbType.Int64);
-            parameters.Add("waterIntake", DietRecoed.waterIntake, DbType.Int64);
-            parameters.Add("petReaction", DietRecoed.petReaction, DbType.String);
-            parameters.Add("DRremark", DietRecoed.DRremark, DbType.String);
+            parameters.Add("mealTime", DietRecoeds.mealTime, DbType.DateTime);
+            parameters.Add("foodType", DietRecoeds.foodType, DbType.String);
+            parameters.Add("Amount", DietRecoeds.Amount, DbType.Int64);
+            parameters.Add("waterIntake", DietRecoeds.waterIntake, DbType.Int64);
+            parameters.Add("petReaction", DietRecoeds.petReaction, DbType.String);
+            parameters.Add("DRremark", DietRecoeds.DRremark, DbType.String);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -76,7 +76,7 @@ namespace Pets.Repositories
         }
         public async Task DeleteDietRecords(Guid id)
         {
-            string sqlQuery = "DELETE FROM DietRecoeds WHERE DRid = @Id";
+            string sqlQuery = "DELETE FROM dietRecoeds WHERE DRid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
