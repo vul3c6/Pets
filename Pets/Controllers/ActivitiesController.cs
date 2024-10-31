@@ -101,7 +101,7 @@ namespace Pets.Controllers
                 {
                     Success = true,
                     Message = "Activties Returned.",
-                    DietRecords = Activties
+                    activities = Activties
                 });
             }
             catch (Exception ex)

@@ -12,7 +12,7 @@ namespace Pets.Dtos
         [Required]
         public DateTime endTime { get; set; }
         [Required]
-        public float distance { get; set; }
+        public float Distance { get; set; }
         [Required]
         public int Steps { get; set; }
     }
