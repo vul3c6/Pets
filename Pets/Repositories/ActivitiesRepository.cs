@@ -21,7 +21,7 @@ namespace Pets.Repositories
         public async Task<IEnumerable<Activities>> GetAllActivities()
         {
             // 設定查詢用的SQL 語法
-            string sqlQuery = "SELECT * FROM activities";
+            string sqlQuery = "SELECT * FROM Activities";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -34,7 +34,7 @@ namespace Pets.Repositories
         // 
         public async Task<Activities> GetActivitiesById(Guid id)
         {
-            string sqlQuery = "SELECT * FROM activities WHERE Aid = @Id";
+            string sqlQuery = "SELECT * FROM Activities WHERE Aid = @Id";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<ActivitiesForCreactionDto> CreateActivities(ActivitiesForCreactionDto activities)
         {
-            string sqlQuery = "INSERT INTO activities (Pid,Atype,startTime,endTime) VALUES (@Pid,@Atype,@startTime,@endTime)";
+            string sqlQuery = "INSERT INTO Activities (Pid,Atype,startTime,endTime) VALUES (@Pid,@Atype,@startTime,@endTime)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -56,7 +56,7 @@ namespace Pets.Repositories
         }
         public async Task UpdateActivities(Guid id, ActivitiesForUpdateDto activities)
         {
-            string sqlQuery = "UPDATE activities SET Atype = @Atype, startTime = @startTime, endTime = @endTime, Distance = @Distance, Steps = @Steps WHERE Aid = @Id";
+            string sqlQuery = "UPDATE Activities SET Atype = @Atype, startTime = @startTime, endTime = @endTime, distance = @distance, steps = @steps WHERE Aid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
@@ -64,8 +64,8 @@ namespace Pets.Repositories
             parameters.Add("Atype", activities.Atype, DbType.String);
             parameters.Add("startTime", activities.startTime, DbType.DateTime);
             parameters.Add("endTime", activities.endTime, DbType.DateTime);
-            parameters.Add("Distance", activities.Distance, DbType.Single);
-            parameters.Add("Steps", activities.Steps, DbType.Int16);
+            parameters.Add("distance", activities.distance, DbType.Single);
+            parameters.Add("steps", activities.steps, DbType.Int16);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -75,7 +75,7 @@ namespace Pets.Repositories
         }
         public async Task DeleteActivities(Guid id)
         {
-            string sqlQuery = "DELETE FROM activities WHERE Aid = @Id";
+            string sqlQuery = "DELETE FROM Activities WHERE Aid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
@@ -91,7 +91,7 @@ namespace Pets.Repositories
         // 查詢多筆 Activties 資料(依指定 Pid)
         public async Task<IEnumerable<Activities>> GetActivitiesByPid(Guid pid)
         {
-            string sqlQuery = "SELECT * FROM activities WHERE Pid = @Pid";
+            string sqlQuery = "SELECT * FROM Activities WHERE Pid = @Pid";
 
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())

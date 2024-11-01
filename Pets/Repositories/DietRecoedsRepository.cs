@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<DietRecoedsForCreactionDto> CreateDietRecords(DietRecoedsForCreactionDto DietRecoeds)
         {
-            string sqlQuery = "INSERT INTO dietRecoeds (Pid,mealTime,Amount,waterIntake) VALUES (@Pid,@mealTime,@Amount,@waterIntake)";
+            string sqlQuery = "INSERT INTO dietRecoeds (Pid,mealTime,amount,waterIntake) VALUES (@Pid,@mealTime,@amount,@waterIntake)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -56,14 +56,14 @@ namespace Pets.Repositories
         }
         public async Task UpdateDietRecords(Guid id, DietRecoedsForUpdateDto DietRecoeds)
         {
-            string sqlQuery = "UPDATE dietRecoeds SET mealTime = @mealTime, foodType = @foodType, Amount = @Amount, waterIntake = @waterIntake, petReaction = @petReaction, DRremark = @DRremark WHERE DRid = @Id";
+            string sqlQuery = "UPDATE dietRecoeds SET mealTime = @mealTime, foodType = @foodType, amount = @amount, waterIntake = @waterIntake, petReaction = @petReaction, DRremark = @DRremark WHERE DRid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
             parameters.Add("Id", id, DbType.Guid);
             parameters.Add("mealTime", DietRecoeds.mealTime, DbType.DateTime);
             parameters.Add("foodType", DietRecoeds.foodType, DbType.String);
-            parameters.Add("Amount", DietRecoeds.Amount, DbType.Int64);
+            parameters.Add("amount", DietRecoeds.amount, DbType.Int64);
             parameters.Add("waterIntake", DietRecoeds.waterIntake, DbType.Int64);
             parameters.Add("petReaction", DietRecoeds.petReaction, DbType.String);
             parameters.Add("DRremark", DietRecoeds.DRremark, DbType.String);

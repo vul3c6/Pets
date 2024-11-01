@@ -5,9 +5,10 @@ namespace Pets.Dtos
     public class ActivitiesForCreactionDto
     {
         [Required]
+        [StringLength(50, ErrorMessage = "Maximum 50 characters")]
         public string Pid { get; set; }
         [Required]
-        [StringLength(50, ErrorMessage = "Maximum 50 characters")]
+        [StringLength(100, ErrorMessage = "Maximum 100 characters")]
         public string Atype { get; set; }
         [Required]
         public DateTime startTime { get; set; }
@@ -15,8 +16,8 @@ namespace Pets.Dtos
         public DateTime endTime { get; set; }
 
         //[Required]
-        //public float Distance { get; set; }
+        //public float distance { get; set; }
         //[Required]
-        //public int Steps { get; set; }
+        //public int steps { get; set; }
     }
 }
