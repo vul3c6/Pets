@@ -15,9 +15,9 @@ namespace Pets.Dtos
         [Required]
         public DateTime endTime { get; set; }
 
-        //[Required]
-        //public float distance { get; set; }
-        //[Required]
-        //public int steps { get; set; }
+        [Required]
+        public float distance { get; set; }
+        [Required]
+        public int steps { get; set; }
     }
 }

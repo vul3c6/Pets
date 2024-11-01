@@ -12,5 +12,8 @@ namespace Pets.Dtos
         public string Vname { get; set; }
         [Required]
         public DateTime Vdate { get; set; }
+        [Required]
+        [StringLength(255, ErrorMessage = "Maximum 255 characters")]
+        public string Vremarks { get; set; }
     }
 }

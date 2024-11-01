@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<ActivitiesForCreactionDto> CreateActivities(ActivitiesForCreactionDto activities)
         {
-            string sqlQuery = "INSERT INTO Activities (Pid,Atype,startTime,endTime) VALUES (@Pid,@Atype,@startTime,@endTime)";
+            string sqlQuery = "INSERT INTO Activities (Pid,Atype,startTime,endTime,distance,steps) VALUES (@Pid,@Atype,@startTime,@endTime,@distance,@steps)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {

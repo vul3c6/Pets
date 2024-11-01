@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<VaccineForCreationDto> CreateVaccine(VaccineForCreationDto vaccine)
         {
-            string sqlQuery = "INSERT INTO vaccine (Pid,Vname,Vdate) VALUES (@Pid,@Vname,@Vdate)";
+            string sqlQuery = "INSERT INTO vaccine (Pid,Vname,Vdate,Vremarks) VALUES (@Pid,@Vname,@Vdate,@Vremarks)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
