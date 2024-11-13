@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<DietRecoedsForCreactionDto> CreateDietRecords(DietRecoedsForCreactionDto DietRecoeds)
         {
-            string sqlQuery = "INSERT INTO dietRecoeds (Pid,mealTime,amount,waterIntake,petReaction,DRremark) VALUES (@Pid,@mealTime,@amount,@waterIntake,@petReaction,@DRremark)";
+            string sqlQuery = "INSERT INTO dietRecoeds (Pid,mealTime,foodType,amount,waterIntake,petReaction,DRremark) VALUES (@Pid,@mealTime,@foodType,@amount,@waterIntake,@petReaction,@DRremark)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {

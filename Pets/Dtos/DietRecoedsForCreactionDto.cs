@@ -9,6 +9,9 @@ namespace Pets.Dtos
         [Required]
         public DateTime mealTime { get; set; }
         [Required]
+        [StringLength(50, ErrorMessage = "Maximum 50 characters")]
+        public string foodType { get; set; }
+        [Required]
         public int amount { get; set; }
         [Required]
         public int waterIntake { get; set; }
