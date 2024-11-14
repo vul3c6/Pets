@@ -9,5 +9,7 @@
         public string RFeature { get; set; }
         public string RContactlnformation { get; set; }
         public string Maccount { get; set; }
+        public string Img { get; set; }
+        public string name { get; set; }
     }
 }

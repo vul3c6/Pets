@@ -9,5 +9,7 @@
         public string Psex { get; set; }
         public float Pweight { get; set; }
         public string Pborn { get; set; }
+        public string Img { get; set; }
+        public string name { get; set; }
     }
 }
