@@ -4,9 +4,6 @@ namespace Pets.Dtos
 {
     public class ReceiveForCreationDto
     {
-        [Required]
-        [StringLength(10, ErrorMessage = "Maximum 10 characters")]
-        public string RBreed { get; set; }
 
         [Required]
         public DateTime RTime { get; set; }
@@ -14,10 +11,6 @@ namespace Pets.Dtos
         [Required]
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
         public String RPlace { get; set; }
-
-        [Required]
-        [StringLength(50, ErrorMessage = "Maximum 50 characters")]
-        public String RFeature { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Maximum 50 characters")]
