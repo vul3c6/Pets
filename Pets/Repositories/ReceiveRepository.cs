@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<ReceiveForCreationDto> CreateReceive(ReceiveForCreationDto receive)
         {
-            string sqlQuery = "INSERT INTO receive (RTime,RPlace,RContactlnformation,Maccount) VALUES (@RTime,@RPlace,@RContactlnformation,@Maccount)";
+            string sqlQuery = "INSERT INTO receive (RTime,RPlace,RContactlnformation,Maccount,Img) VALUES (@RTime,@RPlace,@RContactlnformation,@Maccount,@Img)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {

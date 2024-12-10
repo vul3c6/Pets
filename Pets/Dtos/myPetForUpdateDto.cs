@@ -22,6 +22,8 @@ namespace Pets.Dtos
         [Required]
         [StringLength(20, ErrorMessage = "Maximum 20 characters")]
         public string Pborn { get; set; }
-
+        [Required]
+        [StringLength(50, ErrorMessage = "Maximum 50 characters")]
+        public String Img { get; set; }
     }
 }

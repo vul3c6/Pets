@@ -45,7 +45,7 @@ namespace Pets.Repositories
         }
         public async Task<LostForCreationDto> CreateLost(LostForCreationDto lost)
         {
-            string sqlQuery = "INSERT INTO lost (LBreed, LTime,LPlace,LFeature,LContactlnformation,Maccount) VALUES (@LBreed, @LTime,@LPlace,@LFeature,@LContactlnformation,@Maccount)";
+            string sqlQuery = "INSERT INTO lost (LBreed, LTime,LPlace,LFeature,LContactlnformation,Maccount, img) VALUES (@LBreed, @LTime,@LPlace,@LFeature,@LContactlnformation,@Maccount, @img)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {

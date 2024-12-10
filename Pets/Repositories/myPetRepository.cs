@@ -45,7 +45,7 @@ namespace Pets.Repositories
         // 新增 myPet 資料
         public async Task<myPetForCreationDto> CreateMyPet(myPetForCreationDto myPet)
         {
-            string sqlQuery = "INSERT INTO myPet (Maccount, Pname, Pbreed, Psex, Pweight, Pborn) VALUES (@Maccount, @Pname, @Pbreed, @Psex, @Pweight, @Pborn)";
+            string sqlQuery = "INSERT INTO myPet (Maccount, Pname, Pbreed, Psex, Pweight, Pborn, Img) VALUES (@Maccount, @Pname, @Pbreed, @Psex, @Pweight, @Pborn, @Img)";
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
@@ -58,7 +58,7 @@ namespace Pets.Repositories
         // 更新 myPet 資料（依指定 id）
         public async Task UpdateMyPet(Guid id, myPetForUpdateDto myPet)
         {
-            string sqlQuery = "UPDATE myPet SET Pname = @Pname, Pbreed = @Pbreed, Psex=@Psex, Pweight = @Pweight, Pborn = @Pborn WHERE Pid = @Id";
+            string sqlQuery = "UPDATE myPet SET Pname = @Pname, Pbreed = @Pbreed, Psex=@Psex, Pweight = @Pweight, Pborn = @Pborn, Img = @Img WHERE Pid = @Id";
             // 建立參數物件
             var parameters = new DynamicParameters();
             // 加入參數
@@ -68,6 +68,7 @@ namespace Pets.Repositories
             parameters.Add("Psex", myPet.Psex, DbType.String);
             parameters.Add("Pweight", myPet.Pweight, DbType.String);
             parameters.Add("Pborn", myPet.Pborn, DbType.String);
+            parameters.Add("Img", myPet.Img, DbType.String);
             // 建立資料庫連線
             using (var connection = _dbContext.CreateConnection())
             {
